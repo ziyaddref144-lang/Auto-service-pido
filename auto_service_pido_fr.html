@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Auto Service Pido — Garage & Mécanique à Témara</title>
+  <meta name="description" content="Auto Service Pido — Garage et mécanique à Témara. Vidange, pneus, freins, diagnostic, batterie et mécanique générale.">
+  <style>
+    :root{
+      --bg:#090d10; --card:#151b20; --card2:#1b2228;
+      --text:#f5f5f5; --muted:#aeb6bd; --yellow:#f4c400;
+      --line:#293138; --max:1150px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text);line-height:1.5}
+    a{text-decoration:none;color:inherit}
+    .container{width:min(92%,var(--max));margin:auto}
+
+    header{position:sticky;top:0;z-index:20;background:rgba(9,13,16,.96);border-bottom:1px solid #20272c}
+    nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .logo{display:flex;align-items:center;gap:10px;font-weight:800}
+    .logo-mark{width:40px;height:40px;border:3px solid var(--yellow);border-radius:50%;display:grid;place-items:center;color:var(--yellow);font-size:20px}
+    .logo span{display:block}
+    .logo small{display:block;color:#ddd;font-size:10px;font-weight:500}
+    .menu{display:flex;gap:26px;align-items:center;color:#ddd;font-size:14px}
+    .menu a:hover{color:var(--yellow)}
+    .call{background:var(--yellow);color:#111;padding:12px 17px;border-radius:5px;font-weight:800;font-size:13px}
+
+    .hero{min-height:520px;display:flex;align-items:center;background:
+      linear-gradient(90deg,rgba(4,8,10,.92) 0%,rgba(4,8,10,.72) 43%,rgba(4,8,10,.28) 100%),
+      url('https://images.unsplash.com/photo-1486006920555-c77dcf18193c?auto=format&fit=crop&w=1800&q=85') center/cover}
+    .hero-content{padding:90px 0;max-width:590px}
+    .eyebrow{color:var(--yellow);font-weight:800;font-size:13px;text-transform:uppercase;margin-bottom:12px}
+    h1{font-size:clamp(38px,6vw,66px);line-height:1.02;text-transform:uppercase;margin-bottom:20px}
+    h1 span{color:var(--yellow)}
+    .hero p{color:#ddd;max-width:500px;margin-bottom:28px}
+    .buttons{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{padding:13px 20px;border-radius:5px;font-weight:800;border:1px solid #77818a}
+    .btn-primary{background:var(--yellow);color:#111;border-color:var(--yellow)}
+    .btn:hover{transform:translateY(-1px)}
+
+    section{padding:70px 0}
+    .section-head{text-align:center;margin-bottom:35px}
+    .section-head .eyebrow{margin-bottom:7px}
+    h2{font-size:30px}
+    .under{width:45px;height:3px;background:var(--yellow);margin:12px auto 0}
+
+    .services{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+    .service{background:var(--card);border:1px solid var(--line);padding:24px;border-radius:8px;display:flex;gap:18px;align-items:flex-start}
+    .icon{font-size:32px;color:var(--yellow);min-width:38px}
+    .service h3{font-size:16px;margin-bottom:5px}
+    .service p{font-size:12px;color:var(--muted)}
+
+    .about{display:grid;grid-template-columns:1fr 1fr;gap:45px;align-items:center}
+    .about-img{height:350px;border-radius:8px;background:
+      linear-gradient(rgba(0,0,0,.15),rgba(0,0,0,.15)),
+      url('https://images.unsplash.com/photo-1625047509248-ec889cbff17f?auto=format&fit=crop&w=1000&q=85') center/cover}
+    .about p{color:var(--muted);margin:15px 0 20px}
+    .checks{display:grid;gap:10px}
+    .check{font-size:13px}.check::before{content:'✓';display:inline-grid;place-items:center;width:19px;height:19px;border-radius:50%;background:var(--yellow);color:#111;font-weight:900;margin-right:9px}
+
+    .stats{display:grid;grid-template-columns:repeat(4,1fr);background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden;margin-top:35px}
+    .stat{text-align:center;padding:25px 12px;border-right:1px solid var(--line)}
+    .stat:last-child{border:0}.stat strong{display:block;color:var(--yellow);font-size:30px}.stat span{color:#bbb;font-size:12px}
+
+
+    .gallery{display:grid;grid-template-columns:2fr 1fr 1fr;gap:12px}
+    .gallery-item{min-height:240px;border-radius:8px;border:1px solid var(--line);background-position:center;background-size:cover}
+    .g1{background-image:url('https://images.unsplash.com/photo-1487754180451-c456f719a1fc?auto=format&fit=crop&w=1200&q=85')}
+    .g2{background-image:url('https://images.unsplash.com/photo-1632823471565-1ecdf5c9b9f6?auto=format&fit=crop&w=900&q=85')}
+    .g3{background-image:url('https://images.unsplash.com/photo-1486006920555-c77dcf18193c?auto=format&fit=crop&w=900&q=85')}
+
+    .contact{display:grid;grid-template-columns:1fr 1fr;gap:35px;align-items:stretch}
+    .contact-info{display:grid;gap:18px}
+    .contact-item{display:flex;gap:14px}.contact-item .ci{color:var(--yellow);font-size:24px}.contact-item h3{font-size:13px;margin-bottom:2px}.contact-item p,.contact-item a{color:var(--muted);font-size:13px}
+    .map{min-height:300px;border-radius:9px;overflow:hidden;border:1px solid var(--line)}
+    .map iframe{width:100%;height:100%;min-height:300px;border:0}
+
+    footer{border-top:1px solid var(--line);padding:25px 0;color:#9fa7ad;font-size:12px}
+    .footer-row{display:flex;justify-content:space-between;gap:20px;align-items:center}
+    .social{display:flex;gap:15px}.social a:hover{color:var(--yellow)}
+
+    @media(max-width:800px){
+      .menu{display:none}
+      nav{min-height:64px}
+      .hero{min-height:600px;background-position:60% center}
+      .hero-content{padding:70px 0}
+      .services{grid-template-columns:1fr}
+      .gallery{grid-template-columns:1fr}.gallery-item{min-height:190px}
+      .about,.contact{grid-template-columns:1fr}
+      .about-img{height:280px}
+      .stats{grid-template-columns:repeat(2,1fr)}
+      .stat:nth-child(2){border-right:0}.stat:nth-child(-n+2){border-bottom:1px solid var(--line)}
+      .footer-row{flex-direction:column;text-align:center}
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <nav>
+      <a class="logo" href="#accueil">
+        <div class="logo-mark">⚙</div>
+        <div><span>AUTO SERVICE PIDO</span><small>Garage & Mécanique</small></div>
+      </a>
+      <div class="menu">
+        <a href="#accueil">Accueil</a><a href="#apropos">À propos</a><a href="#services">Nos services</a><a href="#galerie">Galerie</a><a href="#contact">Contact</a>
+      </div>
+      <a class="call" href="tel:+212619123495">☎ Nous appeler</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="accueil">
+    <div class="container">
+      <div class="hero-content">
+        <div class="eyebrow">Garage à Témara — Témara</div>
+        <h1>L'expertise<br>au service de<br><span>votre voiture</span></h1>
+        <p>Entretien, réparation et diagnostic toutes marques. Qualité, rapidité et prix justes.</p>
+        <div class="buttons">
+          <a class="btn btn-primary" href="https://wa.me/212619123495" target="_blank">◉ WhatsApp</a>
+          <a class="btn" href="tel:+212619123495">☎ Appeler</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="container">
+      <div class="section-head"><div class="eyebrow">Nos services</div><h2>Tout ce dont votre voiture a besoin</h2><div class="under"></div></div>
+      <div class="services">
+        <article class="service"><div class="icon">🛢️</div><div><h3>Vidange</h3><p>Vidange d'huile et remplacement de filtres.</p></div></article>
+        <article class="service"><div class="icon">◉</div><div><h3>Pneus</h3><p>Vente, montage, équilibrage et parallélisme.</p></div></article>
+        <article class="service"><div class="icon">◉</div><div><h3>Freins</h3><p>Vérification, réparation et remplacement des freins.</p></div></article>
+        <article class="service"><div class="icon">⚙</div><div><h3>Diagnostic</h3><p>Diagnostic électronique toutes marques.</p></div></article>
+        <article class="service"><div class="icon">🔋</div><div><h3>Batterie</h3><p>Vente et remplacement de batteries.</p></div></article>
+        <article class="service"><div class="icon">🔧</div><div><h3>Mécanique générale</h3><p>Réparation moteur, embrayage, suspension et plus.</p></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="apropos">
+    <div class="container">
+      <div class="about">
+        <div class="about-img"></div>
+        <div>
+          <div class="eyebrow">À propos de nous</div>
+          <h2>Votre garage de confiance à Témara</h2>
+          <p>Auto Service Pido est un garage professionnel situé à Témara. Nous mettons notre expérience et notre savoir-faire au service de votre véhicule pour assurer votre sécurité et votre satisfaction.</p>
+          <div class="checks">
+            <div class="check">Équipe qualifiée et expérimentée</div>
+            <div class="check">Matériel moderne et performant</div>
+            <div class="check">Service rapide et prix compétitifs</div>
+          </div>
+        </div>
+      </div>
+      <div class="stats">
+        <div class="stat"><strong>1000+</strong><span>Clients satisfaits</span></div>
+        <div class="stat"><strong>1500+</strong><span>Voitures réparées</span></div>
+        <div class="stat"><strong>10+</strong><span>Années d'expérience</span></div>
+        <div class="stat"><strong>100%</strong><span>Service de qualité</span></div>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="galerie">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Notre galerie</div>
+        <h2>Découvrez notre atelier</h2>
+        <div class="under"></div>
+      </div>
+      <div class="gallery">
+        <div class="gallery-item g1"></div>
+        <div class="gallery-item g2"></div>
+        <div class="gallery-item g3"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <div class="contact">
+        <div class="contact-info">
+          <div><div class="eyebrow">Nous contacter</div><h2>Nous sommes là pour vous</h2></div>
+          <div class="contact-item"><div class="ci">📍</div><div><h3>Adresse</h3><p>Témara, Maroc</p><a href="https://www.google.com/maps/search/?api=1&query=Auto%20Service%20Temara" target="_blank">Voir sur Google Maps</a></div></div>
+          <div class="contact-item"><div class="ci">☎</div><div><h3>Téléphone / WhatsApp</h3><a href="https://wa.me/212619123495" target="_blank">06 19 12 34 95</a></div></div>
+          <div class="contact-item"><div class="ci">🕐</div><div><h3>Horaires</h3><p>Lundi – Samedi<br>09:00 – 19:00</p></div></div>
+        </div>
+        <div class="map">
+          <iframe src="https://www.google.com/maps?q=Temara%2C%20Morocco&output=embed" loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container footer-row">
+    <div><strong style="color:#fff">⚙ AUTO SERVICE</strong> — Garage & Mécanique</div>
+    <div>© 2026 Auto Service Pido — Témara — Tous droits réservés.</div>
+    <div class="social"><a href="https://wa.me/212619123495">WhatsApp</a><a href="https://www.instagram.com/" target="_blank">Instagram</a></div>
+  </div>
+</footer>
+</body>
+</html>
